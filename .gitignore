@@ -1,0 +1,69 @@
+# ===== Rust =====
+/target/
+**/*/target/
+Cargo.lock
+**/*.rs.bk
+*.pdb
+
+# ===== Bun / Node / JS =====
+node_modules/
+.bun/
+dist/
+build/
+*.tsbuildinfo
+.cache/
+coverage/
+*.log
+npm-debug.log*
+
+# ===== Generated =====
+*.so
+*.dylib
+*.dll
+*.a
+*.lib
+*.o
+*.obj
+
+# ===== OS =====
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# ===== Editors / IDEs =====
+.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+*.swp
+*~
+
+# ===== Personal AI / agent tooling (NEVER commit) =====
+.grok/
+.claude/
+.zcode/
+.codex/
+.opencode/
+.hermes/
+.mcp/
+.cursor/
+.aider*
+.continue/
+.windsurf/
+.firecrawl/
+.agent/
+.agents/
+
+# ===== Secrets & env =====
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+
+# ===== Test / temp =====
+tmp/
+temp/
+*.tmp

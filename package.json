@@ -1,0 +1,38 @@
+{
+  "name": "bffi-examples",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Official examples and e2e suite for bffi-rs, consuming the published bffi (crates.io) and @z2net/bffi (npm) packages",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/z2net/bffi-examples.git"
+  },
+  "bugs": {
+    "url": "https://github.com/z2net/bffi-examples/issues",
+    "email": "contact@z2net.com"
+  },
+  "engines": {
+    "bun": ">=1.4.0"
+  },
+  "packageManager": "bun@1.4.2",
+  "workspaces": [
+    "sqlite",
+    "async",
+    "event-loop",
+    "callbacks",
+    "workers",
+    "records",
+    "streams",
+    "errors",
+    "wry"
+  ],
+  "scripts": {
+    "build": "cargo build --release --workspace",
+    "test:e2e": "bun test",
+    "test": "bun test"
+  },
+  "devDependencies": {
+    "@types/bun": "1.4.2"
+  }
+}

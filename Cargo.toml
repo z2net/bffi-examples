@@ -1,0 +1,22 @@
+[workspace]
+resolver = "2"
+members = [
+    "sqlite",
+    "async",
+    "event-loop",
+    "callbacks",
+    "workers",
+    "records",
+    "streams",
+    "errors",
+    "wry",
+]
+
+# NOTE: `panic` stays "unwind" (the default). Every artifact here is a
+# cdylib loaded into the Bun host process, and the bffi-rs safety model
+# requires `catch_unwind` to convert panics into JS errors instead of
+# killing Bun.
+[profile.release]
+lto = "fat"
+strip = "symbols"
+codegen-units = 1
