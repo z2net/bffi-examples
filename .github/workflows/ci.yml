@@ -7,6 +7,10 @@ on:
   pull_request:
   push:
     branches: [main, dev/main]
+  # manual / cross-repo dispatch: release-npm.yml in z2net/bffi-rs
+  # triggers this run right after a publish, so the examples validate
+  # themselves against the freshly published packages
+  workflow_dispatch:
 
 permissions:
   contents: read
