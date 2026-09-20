@@ -18,4 +18,4 @@ name = "emit-json-callbacks"
 path = "src/bin/emit_json.rs"
 
 [dependencies]
-bffi = "0.1.3"
+bffi = "0.2.0"
