@@ -10,8 +10,13 @@ loader JSON -> generated TypeScript -> dlopen -> typed API, with
 `bun test` suites that verify the whole chain against the PUBLISHED
 packages:
 
-- Rust: `bffi >= 0.1.3` from crates.io
-- JS: `@z2net/bffi >= 0.1.3` from npm
+- Rust: `bffi >= 0.2.0` from crates.io
+- JS: `@z2net/bffi >= 0.2.0` from npm
+
+Writing a GUI / event-driven binding (wry, winit, tao, SDL, ...)?
+The [Binding GUI guide](https://github.com/z2net/bffi-rs/blob/main/docs/BINDING-GUI.md)
+in bffi-rs covers the threading model, `invoke_wait`, and the
+wry walkthrough this repo ships.
 
 ## Examples
 
@@ -29,7 +34,7 @@ packages:
 
 ## Prerequisites
 
-- [Bun](https://bun.sh) >= 1.4.0
+- [Bun](https://bun.sh) >= 1.4.2
 - Rust 1.98.0 (pinned by `rust-toolchain.toml`; `rustup` installs it
   automatically)
 
