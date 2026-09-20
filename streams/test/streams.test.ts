@@ -10,8 +10,30 @@
  */
 import { describe, expect, test } from "bun:test";
 
-import { bffi, streamToWeb } from "@z2net/bffi";
+import { bffi } from "@z2net/bffi";
 import type { Api } from "../.bffi/api.gen.ts";
+
+/**
+ * Adapts a bffi stream iterator into a native `ReadableStream`
+ * (cancelling the reader releases the native stream early). The
+ * helper used to ship with `@z2net/bffi` and was removed in 0.2.0 -
+ * the pattern is 14 lines, so the example carries it inline.
+ */
+function streamToWeb<T>(iterator: AsyncIterableIterator<T>): ReadableStream<T> {
+  return new ReadableStream<T>({
+    async pull(controller) {
+      const { done, value } = await iterator.next();
+      if (done) {
+        controller.close();
+        return;
+      }
+      controller.enqueue(value);
+    },
+    cancel(): void {
+      void iterator.return?.();
+    },
+  });
+}
 
 /** The generated Api derives the Sample shape from the schema
  * literal; the compile-level assertions below pin it. */
